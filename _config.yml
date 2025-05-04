@@ -1,6 +1,6 @@
 title: Piolandia
 description: "Konstytucja, Ustawy i Gazety Piolandii"
-url: "https://kacper010211.github.io/Piolandia/" # Zmień jeśli Twoja nazwa użytkownika jest inna
+url: "https://kacper010211.github.io" # Zmień jeśli Twoja nazwa użytkownika jest inna
 baseurl: "" # Zostaw puste dla strony użytkownika/organizacji
 
 theme: minima # Prosty domyślny motyw

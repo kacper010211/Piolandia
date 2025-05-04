@@ -1,0 +1,144 @@
+/* Definicja zmiennych kolorów dla motywu jasnego (domyślny) */
+:root {
+  --bg-color: #ffffff; /* Białe tło */
+  --text-color: #212529; /* Ciemny tekst */
+  --link-color: #007bff; /* Niebieski link */
+  --link-hover-color: #0056b3; /* Ciemniejszy niebieski przy najechaniu */
+  --border-color: #dee2e6; /* Jasnoszary border */
+  --header-footer-bg: #f8f9fa; /* Bardzo jasne tło nagłówka/stopki */
+  --button-bg: #e9ecef; /* Jasnoszary przycisk */
+  --button-text: #495057; /* Ciemnoszary tekst przycisku */
+  --input-bg: #ffffff; /* Białe tło inputa */
+  --input-border: #ced4da; /* Szary border inputa */
+  --list-item-border: #eee; /* Bardzo jasny border elementu listy */
+}
+
+/* Definicja zmiennych kolorów dla motywu ciemnego (gdy body ma klasę .dark-mode) */
+body.dark-mode {
+  --bg-color: #1a1a1a; /* Ciemnoszare tło */
+  --text-color: #e0e0e0; /* Jasny tekst */
+  --link-color: #66bfff; /* Jasnoniebieski link */
+  --link-hover-color: #aaddff; /* Jaśniejszy niebieski przy najechaniu */
+  --border-color: #444444; /* Ciemny border */
+  --header-footer-bg: #2a2a2a; /* Bardzo ciemne tło nagłówka/stopki */
+  --button-bg: #555555; /* Ciemnoszary przycisk */
+  --button-text: #eeeeee; /* Jasny tekst przycisku */
+  --input-bg: #333333; /* Ciemne tło inputa */
+  --input-border: #555555; /* Ciemny border inputa */
+  --list-item-border: #383838; /* Ciemny border elementu listy */
+}
+
+/* --- Podstawowe Style Używające Zmiennych --- */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0; /* Usunięto domyślny margines */
+  padding: 20px; /* Dodano padding do body */
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s; /* Płynne przejście */
+}
+
+header, footer {
+  text-align: center;
+  margin-bottom: 20px;
+  padding: 15px 0; /* Dodano padding góra/dół */
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--header-footer-bg);
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+footer {
+    border-top: 1px solid var(--border-color);
+    border-bottom: none; /* Usunięcie dolnej ramki stopki */
+    margin-top: 30px; /* Zwiększony margines górny */
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: var(--link-color);
+  transition: color 0.2s;
+}
+
+nav a:hover {
+  color: var(--link-hover-color);
+}
+
+h1 a { /* Link w tytule strony */
+    color: inherit; /* Dziedziczy kolor tekstu (ciemny lub jasny) */
+    text-decoration: none;
+}
+
+main {
+  max-width: 800px;
+  margin: 20px auto; /* Dodano górny/dolny margines */
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  margin-bottom: 10px;
+  border-bottom: 1px dotted var(--list-item-border);
+  padding-bottom: 10px; /* Zwiększony padding */
+  transition: border-color 0.3s;
+}
+li:last-child {
+    border-bottom: none; /* Usuń border ostatniego elementu */
+}
+
+a {
+  color: var(--link-color);
+  transition: color 0.2s;
+}
+a:hover {
+    color: var(--link-hover-color);
+}
+
+/* Style dla wyszukiwarki i przycisku */
+.search-container {
+  margin-bottom: 20px;
+}
+
+label {
+  margin-right: 5px;
+  font-weight: bold; /* Pogrubienie etykiety */
+}
+
+input[type="text"] {
+  padding: 8px 10px; /* Zwiększony padding */
+  width: 250px;
+  border: 1px solid var(--input-border);
+  background-color: var(--input-bg);
+  color: var(--text-color);
+  border-radius: 4px; /* Zaokrąglenie rogów */
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+button {
+  padding: 8px 15px;
+  cursor: pointer;
+  border: 1px solid var(--border-color);
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+button:hover {
+  opacity: 0.8; /* Lekkie przygaszenie przy najechaniu */
+}
+
+/* Poprawki dla linków w nagłówku/stopce w ciemnym motywie */
+body.dark-mode header a,
+body.dark-mode footer a {
+    color: var(--link-color);
+}
+body.dark-mode header a:hover,
+body.dark-mode footer a:hover {
+    color: var(--link-hover-color);
+}
