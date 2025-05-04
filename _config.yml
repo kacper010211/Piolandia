@@ -1,0 +1,19 @@
+title: Piolandia
+description: "Konstytucja, Ustawy i Gazety Piolandii"
+url: "https://kacper010211.github.io" # Zmień jeśli Twoja nazwa użytkownika jest inna
+baseurl: "" # Zostaw puste dla strony użytkownika/organizacji
+
+theme: minima # Prosty domyślny motyw
+
+collections:
+  laws:
+    output: false # Nie potrzebujemy osobnych stron HTML dla metadanych
+  gazettes:
+    output: false # Nie potrzebujemy osobnych stron HTML dla metadanych
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages" # Dotyczy index.md, lista_praw.md, gazety.md
+    values:
+      layout: "default"

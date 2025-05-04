@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: site.title }}</title>
+    <!-- Link do CSS (jeśli dodasz plik style.css w assets/css/) -->
+    <!-- <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}"> -->
+    <style> /* Proste style dla czytelności */
+        body { font-family: sans-serif; line-height: 1.6; margin: 20px; }
+        header, footer { text-align: center; margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid #ccc; }
+        nav a { margin: 0 10px; text-decoration: none; }
+        main { max-width: 800px; margin: 0 auto; }
+        ul { list-style: none; padding: 0; }
+        li { margin-bottom: 10px; border-bottom: 1px dotted #eee; padding-bottom: 5px; }
+        .search-container { margin-bottom: 20px; }
+        label { margin-right: 5px; }
+        input[type="text"] { padding: 5px; width: 250px; }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+        <nav>
+            <a href="{{ '/' | relative_url }}">Strona Główna</a> |
+            <a href="{{ '/lista_praw' | relative_url }}">Lista Praw</a> |
+            <a href="{{ '/gazety' | relative_url }}">Gazety</a>
+        </nav>
+    </header>
+
+    <main>
+        {{ content }}
+    </main>
+
+    <footer>
+        <p>© {{ "now" | date: "%Y" }} Piolandia</p>
+    </footer>
+</body>
+</html>
