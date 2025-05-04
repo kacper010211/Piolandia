@@ -1,6 +1,6 @@
 ---
 title: Konstytucja Piolandii
-date: 2025
+date: 2025-05-04
 pdf_url: /assets/pdfs/laws/konstytucja.pdf  # <<< WAŻNE: Ścieżka do pliku PDF
 # Możesz dodać inne pola, np.:
 # status: obowiązująca
