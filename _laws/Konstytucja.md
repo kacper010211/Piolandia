@@ -1,10 +1,8 @@
 ---
 title: Konstytucja Piolandii
-date: 2025-05-04
-pdf_url: /assets/pdfs/laws/konstytucja.pdf  # <<< WAŻNE: Ścieżka do pliku PDF
+date: 2025-04-05
+docx_url: /assets/docs/laws/Konstytucja.docx # <<< Zmieniona ścieżka i nazwa pola
 # Możesz dodać inne pola, np.:
 # status: obowiązująca
-# keywords: konstytucja, ustrój, podstawy
+keywords: konstytucja
 ---
-
-Tutaj możesz dodać krótki opis lub streszczenie Konstytucji, które pojawi się na stronie 'opakowującej' (jeśli zdecydujesz się ją stworzyć - patrz krok 6). Jeśli nie chcesz strony opakowującej, możesz zostawić tę część pustą.
