@@ -1,6 +1,6 @@
 ---
 title: Lista Praw Piolandii
-permalink: /lista_praw/ # Stały adres URL tej strony
+permalink: Piolandia/lista_praw/ # Stały adres URL tej strony
 ---
 
 # Lista Praw Piolandii
