@@ -6,19 +6,17 @@ permalink: /gazety/
 
 # Gazety Piolandii
 
-Oficjalne publikacje i dzienniki urzędowe Piolandii w formacie DOCX (Microsoft Word). Kliknięcie linku rozpocznie pobieranie pliku.
+Tutaj znajdziesz wszystkie oficjalne publikacje i dzienniki urzędowe Piolandii w formacie DOCX (Microsoft Word). Kliknięcie linku prawdopodobnie rozpocznie pobieranie pliku.
 
-<!-- WYSZUKIWARKA NAD LISTĄ -->
 <div class="search-container">
-  <label for="gazette-search">Szukaj Gazety (po tytule):</label>
+  <label for="gazette-search">Szukaj Gazety (po tytule/słowach kluczowych):</label>
   <input type="text" id="gazette-search" placeholder="Wpisz szukaną frazę...">
 </div>
 
-<!-- LISTA GAZET -->
 <ul id="gazette-list">
-  {% assign sorted_gazettes = site.gazettes | sort: 'date' | reverse %}
+  {% assign sorted_gazettes = site.gazettes | sort: 'title' %}
   {% for gazette in sorted_gazettes %}
-    <li>
+    <li data-keywords="{{ gazette.keywords | downcase }}">
       <a href="/assets/docs/gazettes/{{ gazette.docx_url }}" download>
         {{ gazette.title | default: gazette.basename }} (DOCX)
       </a>
@@ -29,15 +27,26 @@ Oficjalne publikacje i dzienniki urzędowe Piolandii w formacie DOCX (Microsoft 
   {% endfor %}
 </ul>
 
-<!-- SKRYPT WYSZUKIWARKI -->
 <script>
-  document.getElementById('gazette-search').addEventListener('input', function () {
-    const query = this.value.toLowerCase();
-    const listItems = document.querySelectorAll('#gazette-list li');
+  const searchInput = document.getElementById('gazette-search');
+  const gazetteList = document.getElementById('gazette-list');
+  const listItems = gazetteList.getElementsByTagName('li');
 
-    listItems.forEach(function (item) {
-      const text = item.textContent.toLowerCase();
-      item.style.display = text.includes(query) ? '' : 'none';
-    });
+  searchInput.addEventListener('keyup', function() {
+    const filter = searchInput.value.toLowerCase().trim();
+    for (let i = 0; i < listItems.length; i++) {
+      const item = listItems[i];
+      const link = item.getElementsByTagName('a')[0];
+      const keywords = item.getAttribute('data-keywords') || '';
+
+      if (link) {
+        const title = link.textContent || link.innerText;
+        if (title.toLowerCase().indexOf(filter) > -1 || keywords.indexOf(filter) > -1) {
+          item.style.display = "";
+        } else {
+          item.style.display = "none";
+        }
+      }
+    }
   });
 </script>
