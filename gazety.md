@@ -19,7 +19,7 @@ Oficjalne publikacje i dzienniki urzędowe Piolandii w formacie DOCX (Microsoft 
   {% assign sorted_gazettes = site.gazettes | sort: 'date' | reverse %}
   {% for gazette in sorted_gazettes %}
     <li>
-      <a href="/downloads/{{ gazette.docx_url }}" download>
+      <a href="/assets/docs/gazettes/{{ gazette.docx_url }}" download>
         {{ gazette.title | default: gazette.basename }} (DOCX)
       </a>
       {% if gazette.date %} - (Data publikacji: {{ gazette.date | date: "%Y-%m-%d" }}){% endif %}
