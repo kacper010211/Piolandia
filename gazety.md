@@ -6,19 +6,20 @@ permalink: /gazety/
 
 # Gazety Piolandii
 
-Oficjalne publikacje i dzienniki urzędowe Piolandii w formacie DOCX (Microsoft Word). Kliknięcie linku prawdopodobnie rozpocznie pobieranie pliku.
+Oficjalne publikacje i dzienniki urzędowe Piolandii w formacie DOCX (Microsoft Word). Kliknięcie linku rozpocznie pobieranie pliku.
 
+<!-- WYSZUKIWARKA NAD LISTĄ -->
 <div class="search-container">
   <label for="gazette-search">Szukaj Gazety (po tytule):</label>
   <input type="text" id="gazette-search" placeholder="Wpisz szukaną frazę...">
 </div>
 
+<!-- LISTA GAZET -->
 <ul id="gazette-list">
   {% assign sorted_gazettes = site.gazettes | sort: 'date' | reverse %}
   {% for gazette in sorted_gazettes %}
     <li>
-      <!-- ZMIANA: Link prowadzi do gazette.docx_url -->
-      <a href="{{ gazette.docx_url | relative_url }}" target="_blank">
+      <a href="/downloads/{{ gazette.docx_url }}" download>
         {{ gazette.title | default: gazette.basename }} (DOCX)
       </a>
       {% if gazette.date %} - (Data publikacji: {{ gazette.date | date: "%Y-%m-%d" }}){% endif %}
@@ -28,6 +29,7 @@ Oficjalne publikacje i dzienniki urzędowe Piolandii w formacie DOCX (Microsoft 
   {% endfor %}
 </ul>
 
+<!-- SKRYPT WYSZUKIWARKI -->
 <script>
   document.getElementById('gazette-search').addEventListener('input', function () {
     const query = this.value.toLowerCase();
